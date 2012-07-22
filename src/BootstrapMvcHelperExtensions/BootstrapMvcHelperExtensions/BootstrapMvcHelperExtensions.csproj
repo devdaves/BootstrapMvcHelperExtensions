@@ -44,10 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BootstrapFormHelper.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="enums.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\TagBuilderExtensions.cs" />
+    <Compile Include="HelperButton.cs" />
+    <Compile Include="HelperCheckBox.cs" />
+    <Compile Include="HelperFile.cs" />
+    <Compile Include="HelperForm.cs" />
+    <Compile Include="HelperPassword.cs" />
+    <Compile Include="HelperRadio.cs" />
+    <Compile Include="HelperSelect.cs" />
+    <Compile Include="HelperTextArea.cs" />
+    <Compile Include="HelperUneditable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HelperTextBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
