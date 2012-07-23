@@ -13,25 +13,15 @@
     public static class HelperButton
     {
         /// <summary>
-        /// Start of the bootstrap button container
+        /// A container for the form buttons
         /// </summary>
         /// <param name="htmlHelper">The HTML helper.</param>
-        /// <returns>An MvcHtmlString</returns>
-        public static MvcHtmlString BootstrapButtonsBegin(this HtmlHelper htmlHelper)
+        /// <returns>returns a BootstrapButtonContainer</returns>
+        public static BootstrapButtonContainer BootstrapFormButtonContainer(this HtmlHelper htmlHelper)
         {
-            return GetButtonContainer().ToString(TagRenderMode.StartTag).ToMvcHtmlString();
-            ////return string.Format("{0}{1}", GetRootContainer().ToString(TagRenderMode.StartTag), GetInputContainer().ToString(TagRenderMode.StartTag)).ToMvcHtmlString();
-        }
-
-        /// <summary>
-        /// End of the bootstap button container
-        /// </summary>
-        /// <param name="htmlHelper">The HTML helper.</param>
-        /// <returns>An MvcHtmlString</returns>
-        public static MvcHtmlString BootstrapButtonsEnd(this HtmlHelper htmlHelper)
-        {
-            return GetButtonContainer().ToString(TagRenderMode.EndTag).ToMvcHtmlString();
-            ////return string.Format("{0}{1}", GetInputContainer().ToString(TagRenderMode.StartTag), GetRootContainer().ToString(TagRenderMode.StartTag)).ToMvcHtmlString();
+            htmlHelper.ViewContext.Writer.Write(Common.GetButtonContainer().ToString(TagRenderMode.StartTag));
+            BootstrapButtonContainer buttonContainer = new BootstrapButtonContainer(htmlHelper.ViewContext);
+            return buttonContainer;
         }
 
         /// <summary>
@@ -47,8 +37,19 @@
         public static MvcHtmlString BootstrapButton(this HtmlHelper htmlHelper, string id, string text, ButtonType buttonType = ButtonType.@default, ButtonSize buttonSize = ButtonSize.@default, bool disabled = false)
         {
             TagBuilder b = new TagBuilder("button");
-            b.AddCssClass(Common.GetCssClass(buttonType));
-            b.AddCssClass(Common.GetCssClass(buttonSize));
+            var typeCss = Common.GetCssClass(buttonType);
+            var sizeCss = Common.GetCssClass(buttonSize);
+
+            if (!string.IsNullOrEmpty(typeCss))
+            {
+                b.AddCssClass(typeCss);
+            }
+
+            if (!string.IsNullOrEmpty(sizeCss))
+            {
+                b.AddCssClass(sizeCss);    
+            }
+            
             b.AddCssClass("btn");
 
             if (disabled)
@@ -76,26 +77,33 @@
         public static MvcHtmlString BootstrapLinkButton(this HtmlHelper htmlHelper, string id, string text, string navigateTo, ButtonType buttonType = ButtonType.@default, ButtonSize buttonSize = ButtonSize.@default)
         {
             TagBuilder a = new TagBuilder("a");
-            a.AddCssClass(Common.GetCssClass(buttonType));
-            a.AddCssClass(Common.GetCssClass(buttonSize));
+            var typeCss = Common.GetCssClass(buttonType);
+            var sizeCss = Common.GetCssClass(buttonSize);
+
+            if (!string.IsNullOrEmpty(typeCss))
+            {
+                a.AddCssClass(typeCss);
+            }
+
+            if (!string.IsNullOrEmpty(sizeCss))
+            {
+                a.AddCssClass(sizeCss);
+            }
+
             a.AddCssClass("btn");
 
-            a.Attributes.Add("id", id);
-            a.Attributes.Add("href", navigateTo);
+            if (!string.IsNullOrEmpty(id))
+            {
+                a.Attributes.Add("id", id);
+            }
+
+            if (!string.IsNullOrEmpty(navigateTo))
+            {
+                a.Attributes.Add("href", navigateTo);
+            }
+            
             a.InnerHtml = text;
-
             return a.ToMvcHtmlString();
-        }
-
-        /// <summary>
-        /// Gets the button container.
-        /// </summary>
-        /// <returns>A TagBuilder</returns>
-        private static TagBuilder GetButtonContainer()
-        {
-            TagBuilder b = new TagBuilder("div");
-            b.AddCssClass("form-actions");
-            return b;
         }
     }
 }

@@ -203,5 +203,16 @@
             s.InnerHtml = message;
             return s.ToMvcHtmlString();
         }
+
+        /// <summary>
+        /// Gets the button container.
+        /// </summary>
+        /// <returns>A TagBuilder</returns>
+        internal static TagBuilder GetButtonContainer()
+        {
+            TagBuilder b = new TagBuilder("div");
+            b.AddCssClass("form-actions");
+            return b;
+        }
     }
 }
