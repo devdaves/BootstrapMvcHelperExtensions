@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HelperButtonTests.cs" />
+    <Compile Include="HelperIconTests.cs" />
     <Compile Include="MockContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestModels\Contact.cs" />

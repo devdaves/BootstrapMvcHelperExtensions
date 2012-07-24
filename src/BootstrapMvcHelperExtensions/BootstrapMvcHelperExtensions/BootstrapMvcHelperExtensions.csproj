@@ -53,6 +53,7 @@
     <Compile Include="HelperCheckBox.cs" />
     <Compile Include="HelperFile.cs" />
     <Compile Include="HelperForm.cs" />
+    <Compile Include="HelperIcon.cs" />
     <Compile Include="HelperPassword.cs" />
     <Compile Include="HelperRadio.cs" />
     <Compile Include="HelperSelect.cs" />

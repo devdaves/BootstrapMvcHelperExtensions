@@ -15,52 +15,6 @@
         /// <summary>
         /// Gets the CSS class.
         /// </summary>
-        /// <param name="buttonType">Type of the button.</param>
-        /// <returns>The css class of the button type</returns>
-        internal static string GetCssClass(ButtonType buttonType)
-        {
-            switch (buttonType)
-            {
-                case ButtonType.@default:
-                    return string.Empty;
-                case ButtonType.primary:
-                    return "btn-primary";
-                case ButtonType.info:
-                    return "btn-info";
-                case ButtonType.success:
-                    return "btn-success";
-                case ButtonType.warning:
-                    return "btn-warning";
-                case ButtonType.danger:
-                    return "btn-danger";
-                default:
-                    return string.Empty;
-            }
-        }
-
-        /// <summary>
-        /// Gets the CSS class.
-        /// </summary>
-        /// <param name="buttonSize">Size of the button.</param>
-        /// <returns>The css class of the button size</returns>
-        internal static string GetCssClass(ButtonSize buttonSize)
-        {
-            switch (buttonSize)
-            {
-                case ButtonSize.@default:
-                    return string.Empty;
-                case ButtonSize.large:
-                    return "btn-large";
-                case ButtonSize.small:
-                    return "btn-small";
-                default:
-                    return string.Empty;
-            }
-        }
-
-        /// <summary>
-        /// Gets the CSS class.
-        /// </summary>
         /// <param name="inputSize">Size of the input.</param>
         /// <returns>The css class of the input size</returns>
         internal static string GetCssClass(InputSize inputSize)
