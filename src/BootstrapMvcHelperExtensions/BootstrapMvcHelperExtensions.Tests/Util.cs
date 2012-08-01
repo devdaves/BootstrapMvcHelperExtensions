@@ -20,7 +20,9 @@
             ViewEngines.Engines.Add(m.ViewEngine.Object);
 
             m.ViewData.Setup(x => x.ViewData).Returns(new ViewDataDictionary<TModel>(model));
-            
+            m.ViewContext.Setup(x => x.ClientValidationEnabled).Returns(clientValidationEnabled);
+            m.ViewContext.Setup(x => x.UnobtrusiveJavaScriptEnabled).Returns(clientValidationEnabled);
+
             var routeData = new RouteData();
             routeData.Values["controller"] = "home";
             routeData.Values["action"] = "index";

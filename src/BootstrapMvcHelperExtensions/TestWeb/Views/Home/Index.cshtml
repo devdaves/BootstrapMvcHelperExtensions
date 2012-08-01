@@ -4,6 +4,10 @@
 <div class="row-fluid">
     <div class="span12">
         <h1>Home Page</h1>
-        @Html.BootstrapButton("id", "text", ButtonType.primary, ButtonSize.@default, false, Icon.icon_asterisk, true)
+        <p>The links below point to example pages for the different types of helpers.</p>
+        <ul>
+            <li>@Html.ActionLink("Icons", "Icons")</li>
+            <li>@Html.ActionLink("Buttons", "Buttons")</li>
+        </ul>
     </div>
 </div>

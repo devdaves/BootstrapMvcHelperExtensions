@@ -35,12 +35,19 @@
         /// <param name="disabled">if set to <c>true</c> [disabled].</param>
         /// <param name="icon">The icon.</param>
         /// <param name="inverted">if set to <c>true</c> [icon is inverted].</param>
+        /// <param name="isSubmit">if set to <c>true</c> [is submit].</param>
         /// <returns>
         /// An MvcHtmlString
         /// </returns>
-        public static MvcHtmlString BootstrapButton(this HtmlHelper htmlHelper, string id, string text, ButtonType buttonType = ButtonType.@default, ButtonSize buttonSize = ButtonSize.@default, bool disabled = false, Icon icon = Icon.@default, bool inverted = false)
+        public static MvcHtmlString BootstrapButton(this HtmlHelper htmlHelper, string id, string text, ButtonType buttonType = ButtonType.@default, ButtonSize buttonSize = ButtonSize.@default, bool disabled = false, Icon icon = Icon.@default, bool inverted = false, bool isSubmit = false)
         {
-            return ButtonBuilder(htmlHelper, id, text, string.Empty, new TagBuilder("button"), buttonType, buttonSize, disabled, icon, inverted);
+            var tag = new TagBuilder("button");
+            if (isSubmit)
+            {
+                tag.Attributes.Add("type", "submit");
+            }
+
+            return ButtonBuilder(htmlHelper, id, text, string.Empty, tag, buttonType, buttonSize, disabled, icon, inverted);
         }
 
         /// <summary>
@@ -71,16 +78,15 @@
         /// <param name="buttonType">Type of the button.</param>
         /// <param name="buttonSize">Size of the button.</param>
         /// <param name="disabled">if set to <c>true</c> [disabled].</param>
-        /// <param name="icon">The icon.</param>
-        /// <param name="inverted">if set to <c>true</c> [icon is inverted].</param>
         /// <returns>
         /// An MvcHtmlString
         /// </returns>
-        public static MvcHtmlString BootstrapSubmitButton(this HtmlHelper htmlHelper, string id, string text, ButtonType buttonType = ButtonType.@default, ButtonSize buttonSize = ButtonSize.@default, bool disabled = false, Icon icon = Icon.@default, bool inverted = false)
+        public static MvcHtmlString BootstrapSubmitButton(this HtmlHelper htmlHelper, string id, string text, ButtonType buttonType = ButtonType.@default, ButtonSize buttonSize = ButtonSize.@default, bool disabled = false)
         {
             var tag = new TagBuilder("input");
             tag.Attributes.Add("type", "submit");
-            return ButtonBuilder(htmlHelper, id, text, string.Empty, tag, buttonType, buttonSize, disabled, icon, inverted);
+            tag.Attributes.Add("value", text);
+            return ButtonBuilder(htmlHelper, id, string.Empty, string.Empty, tag, buttonType, buttonSize, disabled, Icon.@default, false);
         }
 
         /// <summary>
