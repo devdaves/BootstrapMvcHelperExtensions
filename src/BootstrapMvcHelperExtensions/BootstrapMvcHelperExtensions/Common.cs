@@ -22,11 +22,15 @@
             switch (inputSize)
             {
                 case InputSize.small:
-                    return "span2";
+                    return "input-small";
                 case InputSize.medium:
-                    return "span3";
+                    return "input-medium";
                 case InputSize.large:
-                    return "span4";
+                    return "input-large";
+                case InputSize.xlarge:
+                    return "input-xlarge";
+                case InputSize.xxlarge:
+                    return "input-xxlarge";
                 default:
                     return string.Empty;
             }

@@ -1,0 +1,27 @@
+﻿@model TestWeb.Models.Contact
+
+@{
+    ViewBag.Title = "TextBox";
+}
+<div class="row-fluid">
+    <div class="span12">
+        <h1>Textbox Page</h1>
+        <p>
+            <a href="@Url.Action("Index")">@Html.BootstrapIcon(Icon.icon_arrow_left) Home</a>
+        </p>
+    </div>
+</div>
+<div class="row-fluid">
+    @using (Html.BeginForm("TextBox", "Home", FormMethod.Post, new {@class = "form-horizontal" }))
+    {
+        <fieldset>
+            
+            @Html.BootstrapTextBoxFor(m => m.FirstName)
+            @Html.BootstrapTextBoxFor(m => m.LastName)
+            @using (Html.BootstrapFormButtonContainer())
+            {
+                @Html.BootstrapSubmitButton("btnSubmit", "Save", ButtonType.@default, ButtonSize.@default, false)
+            }
+        </fieldset>            
+    }
+</div>

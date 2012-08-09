@@ -21,7 +21,7 @@
         public Mock<ActionExecutingContext> ActionExecuting { get; private set; }
         public Mock<IViewDataContainer> ViewData { get; private set; }
         public Mock<IViewEngine> ViewEngine { get; private set; }
-        public Mock<ControllerBase> Controller { get; private set; }
+        public Mock<Controller> Controller { get; private set; }
         public Mock<ControllerContext> ControllerContext { get; private set; }
         public Mock<ViewContext> ViewContext { get; private set; }
         public Mock<FormContext> FormContext { get; private set; }
@@ -42,7 +42,7 @@
             this.ActionExecuting = new Mock<ActionExecutingContext>(MockBehavior.Loose);
             this.ViewData = new Mock<IViewDataContainer>();
             this.ViewEngine = new Mock<IViewEngine>();
-            this.Controller = new Mock<ControllerBase>();
+            this.Controller = new Mock<Controller>();
             this.ControllerContext = new Mock<ControllerContext>();
             this.ViewContext = new Mock<ViewContext>();
             this.FormContext = new Mock<FormContext>();

@@ -30,7 +30,9 @@
     {
         small,
         medium,
-        large
+        large,
+        xlarge,
+        xxlarge
     }
 
     /// <summary>
